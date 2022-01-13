@@ -1,9 +1,6 @@
 function solution(string) {
-  let answer = "";
-  for (let x of string) {
-    if (x === "A") answer += "#";
-    else answer += x;
-  }
+  let answer = string;
+  answer = answer.replace(/A/g, "#");
   return answer;
 }
 
