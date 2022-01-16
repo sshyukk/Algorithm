@@ -1,11 +1,8 @@
 function solution(string) {
   let answer = "";
-  for (let x of string) {
-    console.log(x);
-    for (let y of answer) {
-      console.log(y);
-      if (x !== y) answer += x;
-    }
+  for (let i = 0; i < string.length; i++) {
+    // console.log(string[i], string.indexOf(string[i]), i);
+    if (i === string.indexOf(string[i])) answer += string[i];
   }
   return answer;
 }
