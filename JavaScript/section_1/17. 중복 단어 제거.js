@@ -1,8 +1,8 @@
 function solution(string) {
   let answer = [];
-  for (let i = 0; i < string.length; i++)
-    // console.log(i, string.indexOf(string[i]), string[i]);
-    if (string.indexOf(string[i]) === i) answer.push(string[i]);
+  answer = string.filter((value, index) => {
+    return string.indexOf(value) === index;
+  });
   return answer;
 }
 
