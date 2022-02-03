@@ -1,11 +1,21 @@
 function solution(arr1, arr2) {
   let answer = [];
-  for (let i = 0; i < arr1.length; i++) {
-    for (let j = 0; j < arr2.length; j++) {
-      if (arr1[i] === arr2[j]) answer.push(arr1[i]);
+  let p1 = (p2 = 0);
+  arr1 = arr1.sort((a, b) => a - b);
+  arr2 = arr2.sort((a, b) => a - b);
+  while (p1 < arr1.length && p2 < arr2.length) {
+    // 각 배열의 원소 값이 다를 경우
+    if (arr1[p1] !== arr2[p2]) {
+      if (arr1[p1] < arr2[p2]) p1++;
+      else p2++;
+    }
+    // 각 배열의 원소 값이 같을 경우
+    else {
+      answer.push(arr1[p1]);
+      p1++;
+      p2++;
     }
   }
-  answer.sort((a, b) => a - b);
   return answer;
 }
 
