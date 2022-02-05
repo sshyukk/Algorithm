@@ -1,18 +1,14 @@
 function solution(arr, num) {
-  let answer = 0;
-  let p1 = (p2 = 0);
-  while (p1 < arr.length) {
-    let sum = arr[p1];
-    if (sum <= num) answer++;
-    p2 = p1 + 1;
-    while (p2 < arr.length) {
-      sum += arr[p2++];
-      if (sum <= num) answer++;
-      else break;
+  let answer = 0,
+    sum = 0,
+    lt = 0;
+  for (let rt = 0; rt < arr.length; rt++) {
+    sum += arr[rt];
+    while (sum > num) {
+      sum -= arr[lt++];
     }
-    p1++;
+    answer += rt - lt + 1;
   }
-
   return answer;
 }
 
