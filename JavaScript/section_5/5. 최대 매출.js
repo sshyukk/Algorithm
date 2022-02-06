@@ -1,11 +1,11 @@
 function solution(arr, num) {
-  let answer = Number.MIN_SAFE_INTEGER;
-  for (let i = 0; i < arr.length - num + 1; i++) {
-    let temp = 0;
-    for (let j = 0; j < num; j++) {
-      temp += arr[i + j];
-    }
-    if (temp >= answer) answer = temp;
+  let answer,
+    sum = 0;
+  for (let i = 0; i < num; i++) sum += arr[i];
+  answer = sum;
+  for (let i = k; i < arr.length; i++) {
+    sum += arr[k] - arr[i - k];
+    answer = Math.max(answer, sum);
   }
   return answer;
 }
