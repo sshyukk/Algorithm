@@ -1,13 +1,16 @@
-function solution(str) {
-  let answer = [];
-  for (let x of str) {
-    if (x === "(") answer.push(x);
-    else answer.pop();
+function solution(s) {
+  let answer = "YES";
+  stack = [];
+  for (let x of s) {
+    if (x === "(") stack.push(x);
+    else {
+      if (stack.length === 0) return "NO";
+      stack.pop();
+    }
   }
-  if (answer.length !== 0) return "NO";
-  else return "YES";
-
+  if (stack.length > 0) return "NO";
   return answer;
 }
 
-console.log(solution("(()(()))(()"));
+let a = "(()(()))(()";
+console.log(solution(a));
