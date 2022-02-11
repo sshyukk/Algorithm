@@ -1,11 +1,12 @@
-function solution(str) {
-  let answer = "";
-  let flag = 0;
-  for (let x of str) {
-    if (x === "(") flag += 1;
-    if (flag === 0) answer += x;
-    if (x === ")") flag -= 1;
+function solution(s) {
+  let answer;
+  let stack = [];
+  for (let x of s) {
+    if (x === ")") {
+      while (stack.pop() !== "(");
+    } else stack.push(x);
   }
+  answer = stack.join("");
   return answer;
 }
 
